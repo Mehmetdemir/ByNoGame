@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>ByNoGame-Test App</title>
+    <link href="bootstrap.min.css" rel="stylesheet" />
+    <link href="style.css" rel="stylesheet" />
+
+</head>
+<body>
+    <div class="container-fluid mar-pad-0">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">ByNoGame</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Ana Sayfa <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Hakkımızda</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Pazar
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Fiziksel Ürünler</a>
+                            <a class="dropdown-item" href="#">Item</a>
+                            <a class="dropdown-item" href="#">Oyun Parası</a>
+                            <a class="dropdown-item" href="#">Steam Oyunları</a>
+                            <a class="dropdown-item" href="#">Yazılım & Tasarım</a>
+                            <a class="dropdown-item" href="#">Hesap</a>
+                            <a class="dropdown-item" href="#">Skin</a>
+                            <a class="dropdown-item" href="#">Sosyal Medya</a>
+                            <a class="dropdown-item" href="#">Boost</a>
+                        </div>
+                    </li>
+
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Oyun Ara" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Ara</button>
+                </form>
+            </div>
+        </nav>
+        <div class="content">
+        </div>
+        <footer>
+            <p>Hazırlayan Mehmet DEMİR</p>
+            <p>
+                İletişim Bilgileri: <a href="mailto:mehmeetdemir@gmail.com">
+                    mehmeetdemir@gmail.com
+                </a>.
+            </p>
+        </footer>
+    </div>
+
+    <script src="Jquery.js"></script>
+    <script src="Bootstrap.min.js"></script>
+    <script src="Popper.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $.getJSON("https://picsum.photos/v2/list?page=1&limit=10", function (data) {
+                $.each(data, function (key, val) {
+                    $('.content').append(`
+                         <div id="`+key+`" class="card" style="width: 18rem;">
+                             <img src="`+ val.download_url +`" class="card-img-top" alt="`+val.author+`">
+                                <div class="card-body">
+                                    <h5 class="card-title">`+val.author+`</h5>
+                                    <p class="card-text">Lorem Ipsum, dizgi ve baskı endüstrisinde kullanılan mıgır metinlerdir.</p>
+                                    <a href="`+val.url+`" target="_blank" class="btn btn-primary">Ziyaret Et</a>
+                                </div>
+                          </div>
+                     `);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
