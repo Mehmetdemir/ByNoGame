@@ -1,0 +1,25 @@
+﻿.mar-pad-0
+{
+    margin:0!important;
+    padding:0!important;
+}
+.content {
+    padding: 3% 9%;
+    background-color: #000000;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+}
+
+    .content .card {
+        float: left;
+        margin: 1%;
+       
+    }
+footer {
+    background-color: #343a40 !important;
+    color: #ffffff;
+    padding: 1%;
+    text-align: center;
+    margin-top: -10px;
+}
